@@ -3,16 +3,18 @@
 
 set -e
 
-BUILD_DIR=$1
-CACHE_DIR=$2
-ENV_DIR=$3
+BUILD_DIR="/workspace"
+CACHE_DIR=$1
+LAYERS_DIR=$1
+ENV_DIR="/platform/env/"
+BP_DIR=$CNB_BUILDPACK_DIR
 
-BIN_DIR=$(cd "$(dirname "$0")"; pwd)
+BIN_DIR=$(cd "$BP_DIR"; pwd)
 ROOT_DIR=$(dirname "$BIN_DIR")
 
 function vendor() {
-  local binary="$1"
-  local path="$2"
+  local binary="/workspace"
+  local path="$1"
 
   mkdir -p $path
   tar -xj -f $binary -C $path
