@@ -33,7 +33,11 @@ function vendor() {
   export LD_LIBRARY_PATH="$path/lib:$LD_LIBRARY_PATH"
 }
 
-vendor "$ROOT_DIR/build/imagemagick.tar.bz2" "$BUILD_DIR/vendor/imagemagick"
+echo "BP_DIR: $BP_DIR"
+echo "CACHE_DIR: $CACHE_DIR"
+echo "BIN_DIR: $BIN_DIR"
+echo "ROOT_DIR: $ROOT_DIR"
+vendor "$BP_DIR/build/imagemagick.tar.bz2" "$BUILD_DIR/vendor/imagemagick"
 
 cat <<EOF > export
 export MAGICK_HOME="$BUILD_DIR/vendor/imagemagick"
